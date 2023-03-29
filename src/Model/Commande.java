@@ -25,11 +25,6 @@ public class Commande {
         this.client = client;
     }
 
-    public Commande(Date date, Client client){
-        this.date = date;
-        this.client = client;
-    }
-
     public void ajouteLigneCommande(LigneCommande ligneCommande) {
         listeLigneCmd.add(ligneCommande);
     }
