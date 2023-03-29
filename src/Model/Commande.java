@@ -31,8 +31,4 @@ public class Commande {
         listeLigneCmd.add(ligneCommande);
     }
 
-    public Commande(Date date, Vendeur vendeur) {
-        this.date = date;
-        this.vendeur = vendeur;
-    }
 }
