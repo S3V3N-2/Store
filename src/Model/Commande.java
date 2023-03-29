@@ -25,6 +25,8 @@ public class Commande {
         this.client = client;
     }
 
+
+
     public void ajouteLigneCommande(LigneCommande ligneCommande) {
         listeLigneCmd.add(ligneCommande);
     }
