@@ -31,4 +31,13 @@ public class Commande {
         listeLigneCmd.add(ligneCommande);
     }
 
+    public int getPrix(){
+        int somme = 0;
+        for (int i = 0; i<listeLigneCmd.size(); i++) {
+            somme = somme+listeLigneCmd.get(i).getPrix();
+        }
+
+        return somme;
+    }
+
 }

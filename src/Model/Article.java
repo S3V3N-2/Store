@@ -11,6 +11,12 @@ public class Article {
 
     public String Designation;
 
+    public Article(int id_a, int prix, String designation) {
+        this.id_a = id_a;
+        this.prix = prix;
+        Designation = designation;
+    }
+
     public Vector<LigneCommande> listeLigneC = new Vector<LigneCommande>();
 
     public Vector<LigneStock> listeStock = new Vector<LigneStock>();

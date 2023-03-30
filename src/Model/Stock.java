@@ -28,4 +28,6 @@ public class Stock {
     public void ajouteLigneStock(LigneStock ligneStock) {
         listeStock.add(ligneStock);
     }
+
+
 }

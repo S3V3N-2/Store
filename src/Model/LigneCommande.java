@@ -21,4 +21,8 @@ import java.util.*;
          this.article = article;
          this.commande = commande;
      }
+
+     public int getPrix(){
+         return qte* article.prix;
+     }
 }
