@@ -15,11 +15,14 @@ public class Vendeur extends Personne {
 
     public Magasin magasin;
 
-    public Vendeur(Magasin m) {
+    public Vendeur(String n,String p, String t, String adresse,Magasin m) {
+        super(n,p,t,adresse);
         magasin = m;
     }
 
     public void ajouteCommande(Commande commande) {
+
         listeCommande.add(commande);
     }
+
 }

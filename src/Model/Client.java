@@ -13,11 +13,15 @@ public class Client extends Personne {
 
     public Magasin magasin;
 
-    public Client(Magasin magasin) {
+    public Client(String n,String p, String t, String adresse, Magasin magasin) {
+        super(n,p,t,adresse);
         this.magasin = magasin;
     }
 
     public void ajouteCommande(Commande commande){
+
         liste_cmd.add(commande);
     }
+
+
 }

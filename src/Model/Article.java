@@ -2,19 +2,21 @@ package Model;
 import java.util.*;
 
 public class Article {
-    public Article() {
-    }
+
 
     public int id_a;
 
     public int prix;
 
-    public String Designation;
+    public String nom;
 
-    public Article(int id_a, int prix, String designation) {
+    public String designation;
+
+    public Article(int id_a, int prix, String nom, String designation) {
         this.id_a = id_a;
         this.prix = prix;
-        Designation = designation;
+        this.nom = nom;
+        this.designation = designation;
     }
 
     public Vector<LigneCommande> listeLigneC = new Vector<LigneCommande>();

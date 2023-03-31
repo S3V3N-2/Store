@@ -6,9 +6,6 @@ import java.util.*;
 public class LigneStock {
 
 
-    public LigneStock() {
-    }
-
 
     public int qte;
 

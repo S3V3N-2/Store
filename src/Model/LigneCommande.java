@@ -22,7 +22,7 @@ import java.util.*;
          this.commande = commande;
      }
 
-     public int getPrix(){
+     public int getPrice(){
          return qte* article.prix;
      }
 }

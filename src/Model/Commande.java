@@ -31,12 +31,38 @@ public class Commande {
         listeLigneCmd.add(ligneCommande);
     }
 
-    public int getPrix(){
+    public LigneCommande rechercherLigneCommande(Article art){
+        // la fonction recherche une LigneCommande dans le tableau des LigneCommande par rapport à l'article passer en parametre
+        for( int i=0; i<listeLigneCmd.size();i++){
+            if( listeLigneCmd.get(i).article == art ){
+                return listeLigneCmd.get(i);
+            }
+        }
+        return null;
+    }
+
+    public void modifierQuantiteLigneCommande( Article art, int quantity ){
+        // la fonction recherche la ListeCommande en fonction de l'article
+        // puis elle modifie sa quantité
+        rechercherLigneCommande(art).qte = quantity;
+    }
+    public void supprimerLigneCommande(Article art){
+        // La fonction parcours toute la listeLigneCmd pour supprimer
+        // la LigneCommande correspondante a l'article passé en parametre
+        Vector<LigneCommande> newVect = new Vector<LigneCommande>();
+        for( int i=0; i<listeLigneCmd.size(); i++){
+            if( listeLigneCmd.get(i).article != art ){
+                newVect.add( listeLigneCmd.get(i) );
+            }
+        }
+        listeLigneCmd = newVect;
+    }
+    public int getPrice(){
+        // fonction qui somme le prix de toutes les LigneCommande pour avoir le prix total
         int somme = 0;
         for (int i = 0; i<listeLigneCmd.size(); i++) {
-            somme = somme+listeLigneCmd.get(i).getPrix();
+            somme = somme+listeLigneCmd.get(i).getPrice();
         }
-
         return somme;
     }
 

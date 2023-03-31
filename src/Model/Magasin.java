@@ -6,9 +6,6 @@ import java.util.*;
 public class Magasin {
 
 
-    public Magasin() {
-    }
-
 
     public String nom;
 
@@ -35,5 +32,33 @@ public class Magasin {
 
     public void ajouteStock(Stock stock){
         listeStock.add(stock);
+    }
+
+    public Article rechercherArticle(String nom){
+        for( int i=0; i<listeStock.size() ; i++ ){
+            for(int j=0; j<listeStock.get(i).listeLigneStock.size();j++ ){
+                if( listeStock.get(i).listeLigneStock.get(j).article.nom == nom ) {
+                    return listeStock.get(i).listeLigneStock.get(j).article;
+                }
+            }
+        }
+        return null;
+    }
+
+    public Client rechercherClient(String nom){
+        for( int i=0; i<listeClient.size();i++){
+            if( listeClient.get(i).nom == nom ){
+                return listeClient.get(i);
+            }
+        }
+        return null;
+    }
+    public Vendeur rechercherVendeur(String nom){
+        for( int i=0; i<listeClient.size();i++){
+            if( listeClient.get(i).nom == nom ){
+                return listeVendeur.get(i);
+            }
+        }
+        return null;
     }
 }
