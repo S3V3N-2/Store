@@ -61,4 +61,29 @@ public class Magasin {
         }
         return null;
     }
+
+    public float chiffreAffaireClient(String nom){
+        return rechercherClient(nom).chiffreAffaireClient();
+    }
+    public float chiffreAffaireVendeur(String nom){
+        return rechercherVendeur(nom).chiffreAffaireVendeur();
+    }
+    public float chiffreAffaireTotal() {
+        float somme = 0;
+        for(int i=0; i<listeClient.size();i++){
+            somme += listeClient.get(i).chiffreAffaireClient();
+        }
+        return somme;
+    }
+
+    public Vector<Article> listes_articles_vendus(String nom){
+        Vector<Article> all_articles = new Vector<Article>();
+        for(int i=0; i<listeClient.size();i++){
+            Vector<Article> v = listeClient.get(i).listes_articles_commandes_client();
+            for(int j=0;j<v.size();j++){
+                if( !(all_articles.contains(v.get(j))) ) { all_articles.add( v.get(j) ); }
+            }
+        }
+        return all_articles;
+    }
 }

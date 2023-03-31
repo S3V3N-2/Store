@@ -57,9 +57,9 @@ public class Commande {
         }
         listeLigneCmd = newVect;
     }
-    public int getPrice(){
+    public float getPrice(){
         // fonction qui somme le prix de toutes les LigneCommande pour avoir le prix total
-        int somme = 0;
+        float somme = 0;
         for (int i = 0; i<listeLigneCmd.size(); i++) {
             somme = somme+listeLigneCmd.get(i).getPrice();
         }

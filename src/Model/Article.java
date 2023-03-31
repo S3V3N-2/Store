@@ -6,7 +6,7 @@ public class Article {
 
     public int id_a;
 
-    public int prix;
+    public float prix;
 
     public String nom;
 

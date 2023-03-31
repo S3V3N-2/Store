@@ -25,4 +25,20 @@ public class Vendeur extends Personne {
         listeCommande.add(commande);
     }
 
+    public float chiffreAffaireVendeur(){
+        float somme = 0;
+        for(int i=0 ; i<listeCommande.size();i++){
+            somme += listeCommande.get(i).getPrice();
+        }
+        return somme;
+    }
+
+    public int nbProduitVendu(){
+        int nb = 0;
+        for(int i=0; i<listeCommande.size();i++){
+            nb += listeCommande.get(i).listeLigneCmd.size();
+        }
+        return nb;
+    }
+
 }
