@@ -76,7 +76,7 @@ public class Magasin {
         return somme;
     }
 
-    public Vector<Article> listes_articles_vendus(String nom){
+    public Vector<Article> listes_articles_vendus(){
         Vector<Article> all_articles = new Vector<Article>();
         for(int i=0; i<listeClient.size();i++){
             Vector<Article> v = listeClient.get(i).listes_articles_commandes_client();
@@ -85,5 +85,28 @@ public class Magasin {
             }
         }
         return all_articles;
+    }
+
+    public int qte_vendu_article(String nom){
+        // calcule la quantité vendu de l'article passé en parametre dans tout le magasin
+        int qte = 0;
+        for( int i=0; i<listeClient.size();i++){
+            qte += listeClient.get(i).qte_article_commande_client(nom);
+        }
+        return qte;
+    }
+
+    public Article article_le_plus_achete(){
+        // l'article le plus acheté dans le magasin
+        Vector<Article> vec = this.listes_articles_vendus();
+        Article article_max = vec.get(0);
+        int nb_max = qte_vendu_article(article_max.nom);
+        for(int i=1; i<vec.size();i++){
+            if( nb_max < qte_vendu_article(vec.get(i).nom) ){
+                article_max = vec.get(i);
+                nb_max = qte_vendu_article(vec.get(i).nom);
+            }
+        }
+        return article_max;
     }
 }

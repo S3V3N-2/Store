@@ -31,7 +31,7 @@ public class Client extends Personne {
     }
 
     public int qte_article_commande_client(String nom){
-        // calcule la quantié de l'article dont le nom est passé en parametre acheté par le client
+        // calcule la quantié de l'article (dont le nom est passé en parametre) acheté par le client
         int nb=0;
         for(int i=0;i<liste_cmd.size();i++){
             for(int j=0;j<liste_cmd.get(i).listeLigneCmd.size();j++){
