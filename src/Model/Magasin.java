@@ -37,7 +37,7 @@ public class Magasin {
     public Article rechercherArticle(String nom){
         for( int i=0; i<listeStock.size() ; i++ ){
             for(int j=0; j<listeStock.get(i).listeLigneStock.size();j++ ){
-                if( listeStock.get(i).listeLigneStock.get(j).article.nom == nom ) {
+                if( listeStock.get(i).listeLigneStock.get(j).article.nom.equals(nom)) {
                     return listeStock.get(i).listeLigneStock.get(j).article;
                 }
             }
@@ -47,15 +47,15 @@ public class Magasin {
 
     public Client rechercherClient(String nom){
         for( int i=0; i<listeClient.size();i++){
-            if( listeClient.get(i).nom == nom ){
+            if( listeClient.get(i).nom.equals(nom)){
                 return listeClient.get(i);
             }
         }
         return null;
     }
     public Vendeur rechercherVendeur(String nom){
-        for( int i=0; i<listeClient.size();i++){
-            if( listeClient.get(i).nom == nom ){
+        for( int i=0; i<listeVendeur.size();i++){
+            if( listeVendeur.get(i).nom.equals(nom)){
                 return listeVendeur.get(i);
             }
         }
