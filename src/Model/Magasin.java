@@ -96,6 +96,8 @@ public class Magasin {
         return qte;
     }
 
+    //ajouter Artcile vendue par un vendeur
+
     public Article article_le_plus_achete(){
         // l'article le plus acheté dans le magasin
         Vector<Article> vec = this.listes_articles_vendus();
