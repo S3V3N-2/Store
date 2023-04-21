@@ -19,7 +19,7 @@ public class Menu extends JFrame {
 
     public Menu(){
         this.setTitle("Menu TECHStore");
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,600));
 
         grid_conteneur.setLayout(new GridLayout(6,1));
