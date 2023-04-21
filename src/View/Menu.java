@@ -1,5 +1,7 @@
 package View;
 
+import Controller.MenuListener;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,6 +32,17 @@ public class Menu extends JFrame {
         grid_conteneur.add(vendeurs);
         grid_conteneur.add(ventes);
         grid_conteneur.add(stat);
+
+        MenuListener m_listener = new MenuListener();
+
+        produits.addActionListener(m_listener);
+        clients.addActionListener(m_listener);
+        vendeurs.addActionListener(m_listener);
+        ventes.addActionListener(m_listener);
+        stat.addActionListener(m_listener);
+
+
+
         this.setContentPane(grid_conteneur);
         this.pack();
         this.setVisible(true);
