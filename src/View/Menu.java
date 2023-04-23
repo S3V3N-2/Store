@@ -14,11 +14,14 @@ public class Menu extends JFrame {
     JButton stat = new JButton("Statistiques");
 
     JPanel grid_conteneur = new JPanel();
+    Model.Magasin mon_magasin;
 
 
 
-    public Menu(){
-        this.setTitle("Menu TECHStore");
+
+    public Menu(Model.Magasin m){
+        mon_magasin = m;
+        this.setTitle("Menu "+m.nom);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,600));
 
@@ -33,7 +36,7 @@ public class Menu extends JFrame {
         grid_conteneur.add(ventes);
         grid_conteneur.add(stat);
 
-        MenuListener m_listener = new MenuListener();
+        MenuListener m_listener = new MenuListener(mon_magasin);
 
         produits.addActionListener(m_listener);
         clients.addActionListener(m_listener);

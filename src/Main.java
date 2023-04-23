@@ -1,3 +1,6 @@
+import Model.*;
+import View.Menu;
+
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -6,63 +9,34 @@ import java.util.Vector;
 
 public class Main {
     public static void main(String[] args) {
+        Magasin magasin = new Magasin("TECHStore");
+        magasin.ajouteStock(new Stock(123,magasin));
 
-        // Données de la JTable sous forme de vecteurs
-                Vector<Vector<Object>> data = new Vector<Vector<Object>>();
-                Vector<Object> row1 = new Vector<Object>();
-                row1.add("John");
-                row1.add("Doe");
-                row1.add(28);
-                data.add(row1);
-                Vector<Object> row2 = new Vector<Object>();
-                row2.add("Jane");
-                row2.add("Doe");
-                row2.add(25);
-                data.add(row2);
-                Vector<Object> row3 = new Vector<Object>();
-                row3.add("Bob");
-                row3.add("Smith");
-                row3.add(35);
-                data.add(row3);
+        Vector<Article> listeArticles = new Vector<Article>();
+        Article pcPortable = new Article(1,600,"Pc Portable","Pc portable de marque HP i7 1To SSD Windows10");
+        Article iphone15 = new Article(2,1400,"Iphone 15","La nouvelle pépite Apple est enfin la !");
+        Article macBook = new Article(3,900,"Mac Book","L'ordinateur intélligent d'apple !");
+        Article tv = new Article(4,200,"TV","Télévision énorme avec une dalle OLED 4K");
+        listeArticles.add(pcPortable);         listeArticles.add(iphone15);        listeArticles.add(macBook);        listeArticles.add(pcPortable);
 
-                // Noms de colonnes de la JTable sous forme de vecteur
-                Vector<String> columnNames = new Vector<String>();
-                columnNames.add("Prénom");
-                columnNames.add("Nom");
-                columnNames.add("Âge");
+        magasin.listeClient.add(new Client("Jean","Luc","0612345678","12 rue Saint-Germain",magasin));
+        magasin.listeClient.add(new Client("Martin","Dubois","0700112233","3 rue de la Bastille",magasin));
+        magasin.listeClient.add(new Client("Xavier","Leclerc","0687654321","40 avenue Jardin d'essai",magasin));
 
-                // Création de la JTable
-                JTable table = new JTable(data, columnNames);
+        magasin.listeVendeur.add(new Vendeur("Kevin","DeBruyne","0771239402","10 rue Manchester City",magasin));
+        magasin.listeVendeur.add(new Vendeur("Ryad","Mahrez","0621326213","26 place Etihad Stadium",magasin));
 
-                // Création du JScrollPane
-                JScrollPane scrollPane = new JScrollPane(table);
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(30,magasin.listeStock.get(0),pcPortable));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(45,magasin.listeStock.get(0),iphone15));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(10,magasin.listeStock.get(0),macBook));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(70,magasin.listeStock.get(0),tv));
 
-                // Création de la JFrame
-                JFrame frame = new JFrame("Exemple de JTable avec des vecteurs");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-                // Ajout du JScrollPane à la JFrame
-                frame.add(scrollPane);
+        Menu menu = new Menu(magasin);
 
-                // Affichage de la JFrame
-                frame.pack();
-                frame.setVisible(true);
-            }
-        }
-        //frame.setLayout(new GridLayout(5,1));
-        /*JButton produit_button = new JButton("Gerer Produits");
-        JButton client_button = new JButton("Gerer Clients");
-        JButton vendeur_button = new JButton("Gerer Vendeurs");
-        JButton vente_button = new JButton("Gerer Vente");
-        JButton stat_button = new JButton("Statistiques");
 
-        frame.add(produit_button);
-        frame.add(client_button);
-        frame.add(vendeur_button);
-        frame.add(vente_button);
-        frame.add(stat_button);*/
+    }
+}
 
        
-
-        //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

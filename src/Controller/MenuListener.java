@@ -12,25 +12,26 @@ import java.util.Vector;
 
 public class MenuListener implements ActionListener {
 
+    Model.Magasin magasin;
 
 
-
-    public MenuListener(){
+    public MenuListener(Model.Magasin m){
+        magasin = m;
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (((JButton)e.getSource()).getText().equals("Gestion Produits")) {
-            GestionProduits gestionProduits = new GestionProduits(new Vector<LigneStock>());
+            GestionProduits gestionProduits = new GestionProduits(magasin.listeStock.get(0).listeLigneStock);
             gestionProduits.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Gestion Clients")) {
-            GestionClients gestionClients = new GestionClients();
+            GestionClients gestionClients = new GestionClients(magasin);
             gestionClients.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Gestion Vendeurs")) {
-            GestionVendeurs gestionVendeurs = new GestionVendeurs();
+            GestionVendeurs gestionVendeurs = new GestionVendeurs(magasin);
             gestionVendeurs.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Gestion Ventes")) {

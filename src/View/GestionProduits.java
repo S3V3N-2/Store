@@ -32,13 +32,13 @@ public class GestionProduits extends JFrame {
         nord_panel.setLayout( new FlowLayout() );
         nord_panel.setPreferredSize( new Dimension(600,250));
         getContentPane().add(nord_panel,BorderLayout.NORTH);
-        nord_panel.add(id_tf,BorderLayout.NORTH);
-        nord_panel.add(nom_tf,BorderLayout.NORTH);
-        nord_panel.add(prix_tf,BorderLayout.NORTH);
-        nord_panel.add(qte_tf,BorderLayout.NORTH);
-        nord_panel.add(designation_tf,BorderLayout.NORTH);
-        nord_panel.add(ajout_p,BorderLayout.NORTH);
-        nord_panel.add(supp_p,BorderLayout.NORTH);
+        nord_panel.add(id_tf);
+        nord_panel.add(nom_tf);
+        nord_panel.add(prix_tf);
+        nord_panel.add(qte_tf);
+        nord_panel.add(designation_tf);
+        nord_panel.add(ajout_p);
+        nord_panel.add(supp_p);
 
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Id");
@@ -60,7 +60,7 @@ public class GestionProduits extends JFrame {
 
 
         JTable table = new JTable(data, columnNames);
-       JScrollPane scrollPane = new JScrollPane(table);
+        JScrollPane scrollPane = new JScrollPane(table);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 

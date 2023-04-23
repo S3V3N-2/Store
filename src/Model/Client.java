@@ -11,10 +11,15 @@ public class Client extends Personne {
 
     public Vector<Commande> liste_cmd = new Vector<Commande>();
 
+    public static int nb_clients = 0 ;
+
+    public int id_c ;
+
     public Magasin magasin;
 
     public Client(String n,String p, String t, String adresse, Magasin magasin) {
         super(n,p,t,adresse);
+        id_c = ++nb_clients;
         this.magasin = magasin;
     }
 
