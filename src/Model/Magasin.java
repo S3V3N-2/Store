@@ -34,11 +34,11 @@ public class Magasin {
         listeStock.add(stock);
     }
 
-    public Article rechercherArticle(String nom){
+    public LigneStock rechercherArticle(String nom){
         for( int i=0; i<listeStock.size() ; i++ ){
             for(int j=0; j<listeStock.get(i).listeLigneStock.size();j++ ){
                 if( listeStock.get(i).listeLigneStock.get(j).article.nom.equals(nom)) {
-                    return listeStock.get(i).listeLigneStock.get(j).article;
+                    return listeStock.get(i).listeLigneStock.get(j);
                 }
             }
         }

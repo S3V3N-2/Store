@@ -35,7 +35,7 @@ public class MenuListener implements ActionListener {
             gestionVendeurs.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Gestion Ventes")) {
-            GestionVentes gestionVentes = new GestionVentes();
+            GestionVentes gestionVentes = new GestionVentes(magasin);
             gestionVentes.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Statistiques")) {
