@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GestionVendeursListener;
 import Model.Client;
 import Model.Magasin;
 import Model.Vendeur;
@@ -66,7 +67,13 @@ public class GestionVendeurs extends JFrame {
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 
-
+        JTextField[] tabJTF = new JTextField[3];
+        tabJTF[0] = nom_v;
+        tabJTF[1] = prenom_v;
+        tabJTF[2] = tel_v;
+        GestionVendeursListener gvl = new GestionVendeursListener(magasin,tabJTF,adr_v,tableVendeurs);
+        ajout_v.addActionListener(gvl);
+        supp_v.addActionListener(gvl);
 
         this.pack();
     }
