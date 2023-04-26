@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDate;
 import java.util.*;
 
 
@@ -8,7 +9,7 @@ public class Commande {
     public Commande() {
     }
 
-    public Date date;
+    public LocalDate date;
 
 
     public Vendeur vendeur;
@@ -19,7 +20,7 @@ public class Commande {
 
     public Vector<LigneCommande> listeLigneCmd = new Vector<LigneCommande>();
 
-    public Commande(Date date, Vendeur vendeur, Client client) {
+    public Commande(LocalDate date, Vendeur vendeur, Client client) {
         this.date = date;
         this.vendeur = vendeur;
         this.client = client;

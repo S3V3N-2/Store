@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GestionVentesListener;
 import Model.LigneStock;
 import Model.Magasin;
 
@@ -14,11 +15,13 @@ public class GestionVentes extends JFrame {
         JLabel label_clients = new JLabel("Client :");
         JComboBox<String> list_clients ;
         JLabel label_produits = new JLabel("Produit :");
-        JComboBox<String> list_produits ;
+        JList<String> list_produits ;
         JSpinner quantite = new JSpinner(new SpinnerNumberModel(0,0,100,1));
         JButton ajout_v = new JButton("Ajouter au panier");
+        JButton supp_v = new JButton("Supprimer du panier");
         JButton valider_v = new JButton("Valider le panier");
-        JPanel panel = new JPanel();
+        JPanel nordPanel = new JPanel();
+        JPanel ouestPanel = new JPanel();
 
         Magasin magasin;
 
@@ -29,12 +32,14 @@ public class GestionVentes extends JFrame {
         magasin = m;
 
         Vector<String> nom_vendeurs = new Vector<String>();
+        nom_vendeurs.add("");
         for (int i =0;i<m.listeVendeur.size();i++){
             nom_vendeurs.add(m.listeVendeur.get(i).nom + " "+m.listeVendeur.get(i).prenom);
         }
         list_vendeurs = new JComboBox<>(nom_vendeurs);
 
         Vector<String> nom_clients = new Vector<String>();
+        nom_clients.add("");
         for (int i =0;i<m.listeClient.size();i++){
             nom_clients.add(m.listeClient.get(i).nom + " "+m.listeClient.get(i).prenom);
         }
@@ -44,17 +49,23 @@ public class GestionVentes extends JFrame {
         for (int i =0;i<m.listeStock.get(0).listeLigneStock.size();i++){
             nom_produits.add(m.listeStock.get(0).listeLigneStock.get(i).article.nom);
         }
-        list_produits = new JComboBox<>(nom_produits);
+        list_produits = new JList<>(nom_produits);
 
         getContentPane().setLayout( new BorderLayout() );
-        panel.setLayout( new FlowLayout() );
-        panel.add(list_vendeurs);
-        panel.add(list_clients);
-        panel.add(list_produits);
-        panel.add(quantite);
-        panel.add(ajout_v);
-        panel.add(valider_v);
-        getContentPane().add(panel,BorderLayout.CENTER);
+        nordPanel.setLayout( new FlowLayout() );
+        ouestPanel.setLayout( new FlowLayout() );
+        ouestPanel.add(label_vendeurs);
+        ouestPanel.add(list_vendeurs);
+        ouestPanel.add(label_clients);
+        ouestPanel.add(list_clients);
+        nordPanel.add(list_produits);
+        nordPanel.add(quantite);
+        nordPanel.add(ajout_v);
+        nordPanel.add(supp_v);
+        ouestPanel.add(valider_v);
+        nordPanel.setPreferredSize(new Dimension(200,600));
+        getContentPane().add(nordPanel,BorderLayout.WEST);
+        getContentPane().add(ouestPanel,BorderLayout.NORTH);
 
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Nom du produit");
@@ -66,7 +77,11 @@ public class GestionVentes extends JFrame {
         JTable tableCommandes = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(tableCommandes);
 
-        getContentPane().add(scrollPane,BorderLayout.SOUTH);
+        getContentPane().add(scrollPane,BorderLayout.CENTER);
+
+        GestionVentesListener gvl = new GestionVentesListener(magasin,list_produits,quantite,tableCommandes);
+        ajout_v.addActionListener(gvl);
+        supp_v.addActionListener(gvl);
 
         this.pack();
     }
