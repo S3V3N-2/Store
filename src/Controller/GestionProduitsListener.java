@@ -15,14 +15,12 @@ import java.util.Vector;
 public class GestionProduitsListener implements ActionListener {
 
     Stock stock;
-    Vector<LigneStock> liste_ls;
     JTextField[] tabJTF = new JTextField[4];
     JTextArea designation_jta;
     JTable tableProduits;
 
     public GestionProduitsListener(Stock s, JTextField[] jtf, JTextArea jta, JTable jt){
         stock = s;
-        liste_ls = stock.listeLigneStock;
         tabJTF = jtf;
         designation_jta = jta;
         tableProduits = jt;
@@ -83,6 +81,7 @@ public class GestionProduitsListener implements ActionListener {
                 if (((int) id_row) == Integer.parseInt(tabJTF[0].getText())) {
                     DefaultTableModel model = (DefaultTableModel) tableProduits.getModel();
                     model.removeRow(i);
+                    stock.listeLigneStock.removeIf(element -> element.article.id_a == ((int)id_row));
                 }
             }
 

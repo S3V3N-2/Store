@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GestionClientsListener;
 import Model.Client;
 import Model.Magasin;
 
@@ -65,7 +66,13 @@ public class GestionClients extends JFrame {
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 
-
+        JTextField[] tabJTF = new JTextField[3];
+        tabJTF[0] = nom_c;
+        tabJTF[1] = prenom_c;
+        tabJTF[2] = tel_c;
+        GestionClientsListener gcl = new GestionClientsListener(magasin,tabJTF,adr_c,tableClients);
+        ajout_c.addActionListener(gcl);
+        supp_c.addActionListener(gcl);
 
         this.pack();
     }
