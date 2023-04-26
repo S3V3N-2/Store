@@ -1,6 +1,8 @@
 package View;
 
+import Controller.GestionProduitsListener;
 import Model.LigneStock;
+import Model.Stock;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,15 +21,17 @@ public class GestionProduits extends JFrame {
     JButton supp_p = new JButton("Supprimer");
 
     Vector<LigneStock> ligneStock;
+    Stock stock;
 
 
 
-    public GestionProduits(Vector<LigneStock> liste_ls){
+    public GestionProduits(Stock s){
         this.setTitle("GESTION DES PRODUITS");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,600));
         this.setLocationRelativeTo( null );
-        ligneStock = liste_ls;
+        stock = s;
+        ligneStock = stock.listeLigneStock;
         getContentPane().setLayout(new BorderLayout());
         nord_panel.setLayout( new FlowLayout() );
         nord_panel.setPreferredSize( new Dimension(600,250));
@@ -58,13 +62,20 @@ public class GestionProduits extends JFrame {
             data.add(o);
         }
 
-
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 
+        JTextField[] tabJTF = new JTextField[4];
+        tabJTF[0] = id_tf;
+        tabJTF[1] = nom_tf;
+        tabJTF[2] = prix_tf;
+        tabJTF[3] = qte_tf;
 
+        GestionProduitsListener gpl = new GestionProduitsListener(s,tabJTF,designation_tf,table);
+        ajout_p.addActionListener(gpl);
+        supp_p.addActionListener(gpl);
         this.pack();
     }
 }
