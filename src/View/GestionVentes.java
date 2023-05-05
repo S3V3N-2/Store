@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class GestionVentes extends JFrame {
         JLabel label_vendeurs = new JLabel("Vendeur :");
-        JComboBox<String > list_vendeurs ;
+        JComboBox<String> list_vendeurs ;
         JLabel label_clients = new JLabel("Client :");
         JComboBox<String> list_clients ;
         JLabel label_produits = new JLabel("Produit :");
@@ -34,7 +34,7 @@ public class GestionVentes extends JFrame {
         Vector<String> nom_vendeurs = new Vector<String>();
         nom_vendeurs.add("");
         for (int i =0;i<m.listeVendeur.size();i++){
-            nom_vendeurs.add(m.listeVendeur.get(i).nom + " "+m.listeVendeur.get(i).prenom);
+            nom_vendeurs.add(m.listeVendeur.get(i).nom + " " +m.listeVendeur.get(i).prenom);
         }
         list_vendeurs = new JComboBox<>(nom_vendeurs);
 

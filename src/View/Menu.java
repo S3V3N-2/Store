@@ -1,6 +1,8 @@
 package View;
 
 import Controller.MenuListener;
+import Model.Client;
+import Model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +16,8 @@ public class Menu extends JFrame {
     JButton stat = new JButton("Statistiques");
 
     JPanel grid_conteneur = new JPanel();
-    Model.Magasin mon_magasin;
+    Magasin mon_magasin;
+    Client client;
 
 
 
@@ -36,7 +39,7 @@ public class Menu extends JFrame {
         grid_conteneur.add(ventes);
         grid_conteneur.add(stat);
 
-        MenuListener m_listener = new MenuListener(mon_magasin);
+        MenuListener m_listener = new MenuListener(mon_magasin,client);
 
         produits.addActionListener(m_listener);
         clients.addActionListener(m_listener);

@@ -48,11 +48,23 @@ public class Client extends Personne {
         return nb;
     }
 
+    //total qte vendue dans le magasin
+    public int qte_total_article_commande_client(){
+        int nbTotal = 0;
+        for(int i = 0; i<liste_cmd.size();i++){
+            for (int j = 0; j< liste_cmd.get(i).listeLigneCmd.size();j++) {
+                nbTotal += liste_cmd.get(i).listeLigneCmd.get(j).qte;
+            }
+        }
+        return nbTotal;
+    }
+
     public Vector<Article> listes_articles_commandes_client(){
         // retourne une liste contenant tout les articles commandé par le client
         Vector<Article> newVec = new Vector<Article>();
         for(int i=0;i<liste_cmd.size();i++){
             for(int j=0;j<liste_cmd.get(i).listeLigneCmd.size();j++){
+                //System.out.println(liste_cmd.get(i).listeLigneCmd.size());
                 if( !(newVec.contains(liste_cmd.get(i).listeLigneCmd.get(j).article)) ) {
                     newVec.add(liste_cmd.get(i).listeLigneCmd.get(j).article);
                 }

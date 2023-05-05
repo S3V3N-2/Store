@@ -28,13 +28,13 @@ public class GestionProduits extends JFrame {
     public GestionProduits(Stock s){
         this.setTitle("GESTION DES PRODUITS");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setPreferredSize(new Dimension(600,600));
+        this.setPreferredSize(new Dimension(780,600));
         this.setLocationRelativeTo( null );
         stock = s;
         ligneStock = stock.listeLigneStock;
         getContentPane().setLayout(new BorderLayout());
-        nord_panel.setLayout( new FlowLayout() );
-        nord_panel.setPreferredSize( new Dimension(600,250));
+        nord_panel.setLayout(new FlowLayout());
+        nord_panel.setPreferredSize( new Dimension(500,250));
         getContentPane().add(nord_panel,BorderLayout.NORTH);
         nord_panel.add(id_tf);
         nord_panel.add(nom_tf);
@@ -43,6 +43,7 @@ public class GestionProduits extends JFrame {
         nord_panel.add(designation_tf);
         nord_panel.add(ajout_p);
         nord_panel.add(supp_p);
+
 
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Id");

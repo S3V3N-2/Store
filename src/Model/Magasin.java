@@ -80,8 +80,9 @@ public class Magasin {
         Vector<Article> all_articles = new Vector<Article>();
         for(int i=0; i<listeClient.size();i++){
             Vector<Article> v = listeClient.get(i).listes_articles_commandes_client();
+            //System.out.println(v.size());
             for(int j=0;j<v.size();j++){
-                if( !(all_articles.contains(v.get(j))) ) { all_articles.add( v.get(j) ); }
+                if( !(all_articles.contains(v.get(j))) ) { all_articles.add(v.get(j)); }
             }
         }
         return all_articles;
@@ -96,7 +97,16 @@ public class Magasin {
         return qte;
     }
 
-    //ajouter Artcile vendue par un vendeur
+
+    public int qte_total_vendue(){
+        //total qte vendue dans tout le magasin
+        int qte_total = 0;
+        for (int i = 0; i<listeClient.size();i++){
+            qte_total += listeClient.get(i).qte_total_article_commande_client();
+        }
+        return qte_total;
+    }
+
 
     public Article article_le_plus_achete(){
         // l'article le plus acheté dans le magasin

@@ -2,6 +2,10 @@ package Controller;
 
 
 
+import Model.Client;
+import Model.Commande;
+import Model.Magasin;
+import Model.Stock;
 import View.*;
 
 import javax.swing.*;
@@ -10,11 +14,15 @@ import java.awt.event.ActionListener;
 
 public class MenuListener implements ActionListener {
 
-    Model.Magasin magasin;
+   Magasin magasin;
+   Client client;
 
 
-    public MenuListener(Model.Magasin m){
+
+
+    public MenuListener(Magasin m, Client c){
         magasin = m;
+        client = c;
 
     }
 
@@ -37,7 +45,7 @@ public class MenuListener implements ActionListener {
             gestionVentes.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Statistiques")) {
-            Statistiques statistiques = new Statistiques();
+            Statistiques statistiques = new Statistiques(magasin, client);
             statistiques.setVisible(true);
         }
     }
