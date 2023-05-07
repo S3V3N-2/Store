@@ -34,7 +34,7 @@ public class Magasin {
         listeStock.add(stock);
     }
 
-    public LigneStock rechercherArticle(String nom){
+    public LigneStock rechercherLigneStock(String nom){
         for( int i=0; i<listeStock.size() ; i++ ){
             for(int j=0; j<listeStock.get(i).listeLigneStock.size();j++ ){
                 if( listeStock.get(i).listeLigneStock.get(j).article.nom.equals(nom)) {
@@ -65,7 +65,7 @@ public class Magasin {
     public float chiffreAffaireClient(String nom){
         return rechercherClient(nom).chiffreAffaireClient();
     }
-    public float chiffreAffaireVendeur(String nom){
+    public float chiffreAffaireVendeur(String nom,String prenom){
         return rechercherVendeur(nom).chiffreAffaireVendeur();
     }
     public float chiffreAffaireTotal() {

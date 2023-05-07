@@ -20,17 +20,17 @@ public class Main {
         Article tv = new Article(4,200,"TV","Télévision énorme avec une dalle OLED 4K");
         listeArticles.add(pcPortable);         listeArticles.add(iphone15);        listeArticles.add(macBook);        listeArticles.add(pcPortable);
 
-        magasin.listeClient.add(new Client("Jean","Luc","0612345678","12 rue Saint-Germain",magasin));
-        magasin.listeClient.add(new Client("Martin","Dubois","0700112233","3 rue de la Bastille",magasin));
-        magasin.listeClient.add(new Client("Xavier","Leclerc","0687654321","40 avenue Jardin d'essai",magasin));
+        magasin.ajouteClient(new Client("Jean","Luc","0612345678","12 rue Saint-Germain",magasin));
+        magasin.ajouteClient(new Client("Martin","Dubois","0700112233","3 rue de la Bastille",magasin));
+        magasin.ajouteClient(new Client("Xavier","Leclerc","0687654321","40 avenue Jardin d'essai",magasin));
 
 
 
-        magasin.listeVendeur.add(new Vendeur("Kevin","DeBruyne","0771239402","10 rue Manchester City",magasin));
-        magasin.listeVendeur.add(new Vendeur("Ryad","Mahrez","0621326213","26 place Etihad Stadium",magasin));
+        magasin.ajouteVendeur(new Vendeur("Kevin","DeBruyne","0771239402","10 rue Manchester City",magasin));
+        magasin.ajouteVendeur(new Vendeur("Ryad","Mahrez","0621326213","26 place Etihad Stadium",magasin));
 
         Stock stock = new Stock(1,magasin);
-        magasin.listeStock.add(stock);
+        magasin.ajouteStock(stock);
         stock.listeLigneStock.add(new LigneStock(30,magasin.listeStock.get(0),pcPortable));
         stock.listeLigneStock.add(new LigneStock(45,magasin.listeStock.get(0),iphone15));
         magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(30,magasin.listeStock.get(0),pcPortable));

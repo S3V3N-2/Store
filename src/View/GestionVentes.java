@@ -33,21 +33,21 @@ public class GestionVentes extends JFrame {
 
         Vector<String> nom_vendeurs = new Vector<String>();
         nom_vendeurs.add("");
-        for (int i =0;i<m.listeVendeur.size();i++){
-            nom_vendeurs.add(m.listeVendeur.get(i).nom + " " +m.listeVendeur.get(i).prenom);
+        for (int i =0;i<magasin.listeVendeur.size();i++){
+            nom_vendeurs.add(magasin.listeVendeur.get(i).nom);
         }
         list_vendeurs = new JComboBox<>(nom_vendeurs);
 
         Vector<String> nom_clients = new Vector<String>();
         nom_clients.add("");
-        for (int i =0;i<m.listeClient.size();i++){
-            nom_clients.add(m.listeClient.get(i).nom + " "+m.listeClient.get(i).prenom);
+        for (int i =0;i<magasin.listeClient.size();i++){
+            nom_clients.add(magasin.listeClient.get(i).nom);
         }
         list_clients = new JComboBox<>(nom_clients);
 
         Vector<String> nom_produits = new Vector<String>();
-        for (int i =0;i<m.listeStock.get(0).listeLigneStock.size();i++){
-            nom_produits.add(m.listeStock.get(0).listeLigneStock.get(i).article.nom);
+        for (int i =0;i<magasin.listeStock.get(0).listeLigneStock.size();i++){
+            nom_produits.add(magasin.listeStock.get(0).listeLigneStock.get(i).article.nom);
         }
         list_produits = new JList<>(nom_produits);
 
@@ -79,9 +79,10 @@ public class GestionVentes extends JFrame {
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 
-        GestionVentesListener gvl = new GestionVentesListener(magasin,list_produits,quantite,tableCommandes);
+        GestionVentesListener gvl = new GestionVentesListener(magasin,list_produits,list_vendeurs,list_clients,quantite,tableCommandes);
         ajout_v.addActionListener(gvl);
         supp_v.addActionListener(gvl);
+        valider_v.addActionListener(gvl);
 
         this.pack();
     }
