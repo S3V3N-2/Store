@@ -64,6 +64,7 @@ public class GestionProduits extends JFrame {
         }
 
         JTable table = new JTable(data, columnNames);
+        stock.addObserver(new JTableObserver(table));
         JScrollPane scrollPane = new JScrollPane(table);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);

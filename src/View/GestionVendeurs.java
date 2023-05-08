@@ -63,6 +63,7 @@ public class GestionVendeurs extends JFrame {
         }
 
         JTable tableVendeurs = new JTable(data, columnNames);
+        magasin.addObserver( new JTableObserver(tableVendeurs) );
         JScrollPane scrollPane = new JScrollPane(tableVendeurs);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);

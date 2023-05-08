@@ -26,31 +26,30 @@ public class GestionClientsListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        String nom_client = tabTF[0].getText();
+        String prenom_client = tabTF[1].getText();
+        String tel_client = tabTF[2].getText();
+        String adresse_client = textArea.getText();
+
         if (((JButton) e.getSource()).getText().equals("Ajouter")) {
             // vérifie si un des 4 champs sont vides
-            if (tabTF[0].getText().equals("") || tabTF[1].getText().equals("") || tabTF[2].getText().equals("") || textArea.getText().equals("")) {
+            if (nom_client.equals("") || prenom_client.equals("") || tel_client.equals("") || adresse_client.equals("")) {
                 return;
             }
             // recupérer et creer un nouveau client depuis les champs saisis
-            Client c = new Client(tabTF[0].getText(), tabTF[1].getText(), tabTF[2].getText(), textArea.getText(), mon_magasin);
+            Client client = new Client(nom_client, prenom_client, tel_client, adresse_client, mon_magasin);
 
             //vérifie si le client existe déja dans notre magasin
             for (int i = 0; i < mon_magasin.listeClient.size(); i++) {
-                if (mon_magasin.listeClient.get(i) == c) {
+                if (mon_magasin.listeClient.get(i) == client) {
                     return;
                 }
             }
 
-            // Ajouter et afficher le client
-            mon_magasin.listeClient.add(c);
-            DefaultTableModel model = (DefaultTableModel) tableClients.getModel();
-            Vector<Object> o = new Vector<Object>();
-            o.add(c.id_c);
-            o.add(c.nom);
-            o.add(c.prenom);
-            o.add(c.tel);
-            o.add(c.adr);
-            model.addRow(o);
+            // Ajouter  client
+            mon_magasin.ajouteClient(client);
+
             // Vider les champs
             for (int i = 0; i < 3; i++) {
                 tabTF[i].setText("");
@@ -60,16 +59,16 @@ public class GestionClientsListener implements ActionListener {
         }
         if (((JButton) e.getSource()).getText().equals("Supprimer")) {
             //Vérifie le champs nom et prenom qui vont servir a supprimer
-            if( tabTF[0].getText().equals("") || tabTF[1].getText().equals("") ) { return ; }
+            if( nom_client.equals("") || prenom_client.equals("") ) {
+                return ;
+            }
 
             // recherche et suppression du client dont le nom et prenom ont été saisi
             for (int i = 0; i < tableClients.getRowCount(); i++) {
                 Object nom_row = tableClients.getValueAt(i, 1);
                 Object prenom_row = tableClients.getValueAt(i, 2);
-                if ( tabTF[0].getText().equals( ((String)nom_row) ) && tabTF[1].getText().equals( ((String)prenom_row) ) ) {
-                    DefaultTableModel model = (DefaultTableModel) tableClients.getModel();
-                    model.removeRow(i);
-                    mon_magasin.listeClient.removeIf( element -> (element.nom.equals((String)nom_row)) && element.prenom.equals((String)prenom_row)) ;
+                if ( nom_client.equals( ((String)nom_row) ) && prenom_client.equals( ((String)prenom_row) ) ) {
+                    mon_magasin.supprimerClient( mon_magasin.rechercherClient((String)nom_row)) ;
                 }
             }
 

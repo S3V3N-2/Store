@@ -62,6 +62,7 @@ public class GestionClients extends JFrame {
         }
 
         JTable tableClients = new JTable(data, columnNames);
+        magasin.addObserver( new JTableObserver(tableClients) );
         JScrollPane scrollPane = new JScrollPane(tableClients);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);

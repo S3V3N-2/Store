@@ -3,6 +3,7 @@ package Controller;
 import Model.Article;
 import Model.LigneStock;
 import Model.Stock;
+import View.JTableObserver;
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -49,17 +50,7 @@ public class GestionProduitsListener implements ActionListener {
             }
 
             // Ajout de la ligneStock dans notre Stock
-            stock.listeLigneStock.add(new LigneStock(qte_p, stock, new Article(id_p, prix_p, nom_p, designation_p)));
-
-            // Récuperer notre JTable qui contient les produits et lui ajouter notre nouveau produit
-            DefaultTableModel model = (DefaultTableModel) tableProduits.getModel();
-            Vector<Object> o = new Vector<Object>();
-            o.add(id_p);
-            o.add(nom_p);
-            o.add(prix_p);
-            o.add(qte_p);
-            o.add(designation_p);
-            model.addRow(o);
+            stock.ajouteLigneStock(new LigneStock(qte_p, stock, new Article(id_p, prix_p, nom_p, designation_p)));
 
             // Vider les champs
             for (int i = 0; i < 4; i++) {
@@ -70,7 +61,7 @@ public class GestionProduitsListener implements ActionListener {
         if (((JButton) e.getSource()).getText().equals("Supprimer")) {
             // ce boutton utilisera uniquement le champs id produit, il supprimera le produit dont l'id est introduit
 
-            // vérifie le champs id si il est vide
+            // vérifie le champs id si il est vide si il est vide alors on supprime aucun produit
             if (tabJTF[0].getText().equals("")) {
                 return;
             }
@@ -79,9 +70,7 @@ public class GestionProduitsListener implements ActionListener {
             for (int i = 0; i < tableProduits.getRowCount(); i++) {
                 Object id_row = tableProduits.getValueAt(i, 0);
                 if (((int) id_row) == Integer.parseInt(tabJTF[0].getText())) {
-                    DefaultTableModel model = (DefaultTableModel) tableProduits.getModel();
-                    model.removeRow(i);
-                    stock.listeLigneStock.removeIf(element -> element.article.id_a == ((int)id_row));
+                    stock.supprimerLigneStock(stock.rechercherIdLigneStock( (int) id_row) );
                 }
             }
 

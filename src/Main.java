@@ -1,4 +1,5 @@
 import Model.*;
+import View.GestionProduits;
 import View.Menu;
 
 import javax.swing.JFrame;
@@ -49,7 +50,6 @@ public class Main {
 
         magasin.listeClient.add(client);
         magasin.listeVendeur.add(vendeur);
-
 
 
         Menu menu = new Menu(magasin);
