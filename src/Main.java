@@ -1,10 +1,7 @@
 import Model.*;
-import View.GestionProduits;
 import View.Menu;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+
 import java.time.LocalDate;
 import java.util.Vector;
 

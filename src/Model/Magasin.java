@@ -94,7 +94,6 @@ public class Magasin extends Observable {
         Vector<Article> all_articles = new Vector<Article>();
         for(int i=0; i<listeClient.size();i++){
             Vector<Article> v = listeClient.get(i).listes_articles_commandes_client();
-            //System.out.println(v.size());
             for(int j=0;j<v.size();j++){
                 if( !(all_articles.contains(v.get(j))) ) { all_articles.add(v.get(j)); }
             }

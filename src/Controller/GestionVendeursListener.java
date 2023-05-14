@@ -37,10 +37,10 @@ public class GestionVendeursListener implements ActionListener {
             if (nom_vendeur.equals("") || prenom_vendeur.equals("") || tel_vendeur.equals("") || adresse_vendeur.equals("")) {
                 return;
             }
-            // recupérer et creer un nouveau client depuis les champs saisis
+            // recupérer et creer un nouveau vendeur depuis les champs saisis
             Vendeur vendeur = new Vendeur(nom_vendeur,prenom_vendeur,tel_vendeur, adresse_vendeur, mon_magasin);
 
-            //vérifie si le client existe déja dans notre magasin
+            //vérifie si le vendeur existe déja dans notre magasin
             for (int i = 0; i < mon_magasin.listeVendeur.size(); i++) {
                 if (mon_magasin.listeVendeur.get(i) == vendeur) {
                     return;

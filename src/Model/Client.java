@@ -60,11 +60,10 @@ public class Client extends Personne {
     }
 
     public Vector<Article> listes_articles_commandes_client(){
-        // retourne une liste contenant tout les articles commandé par le client
+        //retourne une liste contenant tout les articles commandé par le client
         Vector<Article> newVec = new Vector<Article>();
         for(int i=0;i<liste_cmd.size();i++){
             for(int j=0;j<liste_cmd.get(i).listeLigneCmd.size();j++){
-                //System.out.println(liste_cmd.get(i).listeLigneCmd.size());
                 if( !(newVec.contains(liste_cmd.get(i).listeLigneCmd.get(j).article)) ) {
                     newVec.add(liste_cmd.get(i).listeLigneCmd.get(j).article);
                 }
@@ -74,7 +73,7 @@ public class Client extends Personne {
     }
 
     public Article article_le_plus_achete_client(){
-        // retourne l'article le plus acheté du client
+        //retourne l'article le plus acheté du client
         Vector<Article> vec = listes_articles_commandes_client();
         Article article_max = vec.get(0);
         int nb_max = qte_article_commande_client(article_max.nom);

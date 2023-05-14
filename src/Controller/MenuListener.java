@@ -15,15 +15,13 @@ import java.awt.event.ActionListener;
 public class MenuListener implements ActionListener {
 
    Magasin magasin;
-   Client client;
 
 
 
 
-    public MenuListener(Magasin m, Client c){
+
+    public MenuListener(Magasin m){
         magasin = m;
-        client = c;
-
     }
 
     @Override
@@ -45,7 +43,7 @@ public class MenuListener implements ActionListener {
             gestionVentes.setVisible(true);
         }
         if (((JButton)e.getSource()).getText().equals("Statistiques")) {
-            Statistiques statistiques = new Statistiques(magasin, client);
+            Statistiques statistiques = new Statistiques(magasin);
             statistiques.setVisible(true);
         }
     }

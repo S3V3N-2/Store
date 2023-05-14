@@ -39,7 +39,7 @@ public class Menu extends JFrame {
         grid_conteneur.add(ventes);
         grid_conteneur.add(stat);
 
-        MenuListener m_listener = new MenuListener(mon_magasin,client);
+        MenuListener m_listener = new MenuListener(mon_magasin);
 
         produits.addActionListener(m_listener);
         clients.addActionListener(m_listener);

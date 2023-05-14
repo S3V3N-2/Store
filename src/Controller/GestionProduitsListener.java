@@ -16,7 +16,7 @@ import java.util.Vector;
 public class GestionProduitsListener implements ActionListener {
 
     Stock stock;
-    JTextField[] tabJTF = new JTextField[4];
+    JTextField[] tabJTF;
     JTextArea designation_jta;
     JTable tableProduits;
 
