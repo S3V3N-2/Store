@@ -90,48 +90,48 @@ public class Magasin extends Observable {
         return somme;
     }
 
-    public Vector<Article> listes_articles_vendus(){
-        Vector<Article> all_articles = new Vector<Article>();
+    public Vector<Article> listesArticlesVendus(){
+        Vector<Article> allArticles = new Vector<Article>();
         for(int i=0; i<listeClient.size();i++){
-            Vector<Article> v = listeClient.get(i).listes_articles_commandes_client();
+            Vector<Article> v = listeClient.get(i).listesArticlesCommandesClient();
             for(int j=0;j<v.size();j++){
-                if( !(all_articles.contains(v.get(j))) ) { all_articles.add(v.get(j)); }
+                if( !(allArticles.contains(v.get(j))) ) { allArticles.add(v.get(j)); }
             }
         }
-        return all_articles;
+        return allArticles;
     }
 
-    public int qte_vendu_article(String nom){
+    public int qteVenduArticle(String nom){
         // calcule la quantité vendu de l'article passé en parametre dans tout le magasin
         int qte = 0;
         for( int i=0; i<listeClient.size();i++){
-            qte += listeClient.get(i).qte_article_commande_client(nom);
+            qte += listeClient.get(i).qteArticleCommandeClient(nom);
         }
         return qte;
     }
 
 
-    public int qte_total_vendue(){
+    public int qteTotalVendue(){
         //total qte vendue dans tout le magasin
-        int qte_total = 0;
+        int qteTotal = 0;
         for (int i = 0; i<listeClient.size();i++){
-            qte_total += listeClient.get(i).qte_total_article_commande_client();
+            qteTotal += listeClient.get(i).qteTotalArticleCommandeClient();
         }
-        return qte_total;
+        return qteTotal;
     }
 
 
-    public Article article_le_plus_achete(){
+    public Article articleLePlusAchete(){
         // l'article le plus acheté dans le magasin
-        Vector<Article> vec = this.listes_articles_vendus();
-        Article article_max = vec.get(0);
-        int nb_max = qte_vendu_article(article_max.nom);
+        Vector<Article> vec = this.listesArticlesVendus();
+        Article articleMax = vec.get(0);
+        int nbMax = qteVenduArticle(articleMax.nom);
         for(int i=1; i<vec.size();i++){
-            if( nb_max < qte_vendu_article(vec.get(i).nom) ){
-                article_max = vec.get(i);
-                nb_max = qte_vendu_article(vec.get(i).nom);
+            if( nbMax < qteVenduArticle(vec.get(i).nom) ){
+                articleMax = vec.get(i);
+                nbMax = qteVenduArticle(vec.get(i).nom);
             }
         }
-        return article_max;
+        return articleMax;
     }
 }

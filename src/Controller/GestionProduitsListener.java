@@ -3,27 +3,23 @@ package Controller;
 import Model.Article;
 import Model.LigneStock;
 import Model.Stock;
-import View.JTableObserver;
 
 import javax.swing.*;
-import javax.swing.table.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
-
 
 
 public class GestionProduitsListener implements ActionListener {
 
     Stock stock;
     JTextField[] tabJTF;
-    JTextArea designation_jta;
+    JTextArea designationJta;
     JTable tableProduits;
 
     public GestionProduitsListener(Stock s, JTextField[] jtf, JTextArea jta, JTable jt){
         stock = s;
         tabJTF = jtf;
-        designation_jta = jta;
+        designationJta = jta;
         tableProduits = jt;
     }
 
@@ -36,27 +32,27 @@ public class GestionProduitsListener implements ActionListener {
             }
 
             // récupération des valeurs dans les JTextField et le JTextArea
-            int id_p = Integer.parseInt(tabJTF[0].getText());
-            String nom_p = tabJTF[1].getText();
-            int prix_p = Integer.parseInt(tabJTF[2].getText());
-            int qte_p = Integer.parseInt(tabJTF[3].getText());
-            String designation_p = designation_jta.getText();
+            int idP = Integer.parseInt(tabJTF[0].getText());
+            String nomP = tabJTF[1].getText();
+            int prixP = Integer.parseInt(tabJTF[2].getText());
+            int qteP = Integer.parseInt(tabJTF[3].getText());
+            String designationP = designationJta.getText();
 
             // vérifie si l'id du produit existe déja dans notre stock : si OUI n'éxecute pas le boutton
             for (int i = 0; i < stock.listeLigneStock.size(); i++) {
-                if (stock.listeLigneStock.get(i).article.id_a == id_p) {
+                if (stock.listeLigneStock.get(i).article.idA == idP) {
                     return;
                 }
             }
 
             // Ajout de la ligneStock dans notre Stock
-            stock.ajouteLigneStock(new LigneStock(qte_p, stock, new Article(id_p, prix_p, nom_p, designation_p)));
+            stock.ajouteLigneStock(new LigneStock(qteP, stock, new Article(idP, prixP, nomP, designationP)));
 
             // Vider les champs
             for (int i = 0; i < 4; i++) {
                 tabJTF[i].setText("");
             }
-            designation_jta.setText("");
+            designationJta.setText("");
         }
         if (((JButton) e.getSource()).getText().equals("Supprimer")) {
             // ce boutton utilisera uniquement le champs id produit, il supprimera le produit dont l'id est introduit

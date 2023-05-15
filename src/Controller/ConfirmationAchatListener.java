@@ -9,13 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConfirmationAchatListener implements ActionListener {
-    Magasin mon_magasin;
+    Magasin monMagasin;
     Commande commande;
     JFrame frame;
     Container container;
 
     public ConfirmationAchatListener(Magasin m, Commande c, Container co, JFrame f){
-        mon_magasin = m;
+        monMagasin = m;
         commande = c;
         container = co;
         frame = f;
@@ -24,8 +24,8 @@ public class ConfirmationAchatListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         if (((JButton)e.getSource()).getText().equals("Confirmer")){
-            mon_magasin.rechercherClient(commande.client.nom).ajouteCommande(commande);
-            mon_magasin.rechercherVendeur(commande.vendeur.nom).ajouteCommande(commande);
+            monMagasin.rechercherClient(commande.client.nom).ajouteCommande(commande);
+            monMagasin.rechercherVendeur(commande.vendeur.nom).ajouteCommande(commande);
             container.removeAll();
             container.revalidate();
             container.repaint();

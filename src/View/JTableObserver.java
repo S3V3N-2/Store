@@ -30,14 +30,14 @@ public class JTableObserver implements Observer {
             // on le supprime et on quitte avec return;
             for (int i = 0; i < table.getRowCount(); i++) {
                 Object id_row = table.getValueAt(i, 0);
-                if (((int) id_row) == ls.article.id_a ) {
+                if (((int) id_row) == ls.article.idA) {
                     model.removeRow(i);
                     return;
                 }
             }
             // si elle y est pas ca veut dire qu'on doit l'ajouter :
             Vector<Object> o = new Vector<Object>();
-            o.add(ls.article.id_a);
+            o.add(ls.article.idA);
             o.add(ls.article.nom);
             o.add(ls.article.prix);
             o.add(ls.qte);
@@ -64,7 +64,7 @@ public class JTableObserver implements Observer {
             // avoir vérifier que le vendeur n'existe pas alors elle l'ajoute
             // ajouter le vendeur si il existe pas dans le tableau
             Vector<Object> o = new Vector<Object>();
-            o.add(vendeur.id_v);
+            o.add(vendeur.idV);
             o.add(vendeur.nom);
             o.add(vendeur.prenom);
             o.add(vendeur.tel);
@@ -91,7 +91,7 @@ public class JTableObserver implements Observer {
             // avoir vérifier que le client n'existe pas alors elle l'ajoute
             // ajouter le client si il existe pas dans le tableau
             Vector<Object> o = new Vector<Object>();
-            o.add(client.id_c);
+            o.add(client.idC);
             o.add(client.nom);
             o.add(client.prenom);
             o.add(client.tel);

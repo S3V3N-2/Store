@@ -15,7 +15,7 @@ import java.util.Vector;
 
 public class GestionVentesListener implements ActionListener {
 
-    Magasin mon_magasin ;
+    Magasin monMagasin;
     JList listeProduits ;
     JComboBox listeVendeurs ;
     JComboBox listeClients ;
@@ -23,7 +23,7 @@ public class GestionVentesListener implements ActionListener {
     JTable tableLignesCommandes;
 
     public GestionVentesListener(Magasin m, JList jlp, JComboBox jlv, JComboBox jlc, JSpinner js, JTable tableDonnees) {
-        mon_magasin = m;
+        monMagasin = m;
         listeProduits = jlp;
         listeVendeurs = jlv;
         listeClients = jlc ;
@@ -40,18 +40,18 @@ public class GestionVentesListener implements ActionListener {
                 return ;
             }
 
-            String nom_p = (String) listeProduits.getSelectedValue() ;
-            int qte_p = (int)maQte.getValue();
-            LigneStock article_en_stock = mon_magasin.rechercherLigneStock(nom_p);
-            if( article_en_stock.qte < qte_p ) { qte_p = article_en_stock.qte; }
-            article_en_stock.qte -= qte_p;
+            String nomP = (String) listeProduits.getSelectedValue() ;
+            int qteP = (int)maQte.getValue();
+            LigneStock articleEnStock = monMagasin.rechercherLigneStock(nomP);
+            if( articleEnStock.qte < qteP ) { qteP = articleEnStock.qte; }
+            articleEnStock.qte -= qteP;
 
             DefaultTableModel model = (DefaultTableModel) tableLignesCommandes.getModel();
             Vector<Object> o = new Vector<Object>();
-            o.add(nom_p);
-            o.add(qte_p);
-            o.add(article_en_stock.article.prix);
-            o.add(article_en_stock.article.prix * qte_p);
+            o.add(nomP);
+            o.add(qteP);
+            o.add(articleEnStock.article.prix);
+            o.add(articleEnStock.article.prix * qteP);
             model.addRow(o);
          }
 
@@ -61,25 +61,25 @@ public class GestionVentesListener implements ActionListener {
                 return ;
             }
 
-            String nom_p_supp = (String) listeProduits.getSelectedValue();
-            int qte_p_supp = (int) maQte.getValue();
-            LigneStock article_en_stock = mon_magasin.rechercherLigneStock(nom_p_supp);
+            String nomPSupp = (String) listeProduits.getSelectedValue();
+            int qtePSupp = (int) maQte.getValue();
+            LigneStock articleEnStock = monMagasin.rechercherLigneStock(nomPSupp);
 
             //parcours le tableau et modifie les valeurs
             for (int i = 0; i < tableLignesCommandes.getRowCount(); i++) {
                 Object nom_row = tableLignesCommandes.getValueAt(i, 0);
                 Object qte_row = tableLignesCommandes.getValueAt(i, 1);
-                if ( nom_p_supp.equals(nom_row) ) {
+                if ( nomPSupp.equals(nom_row) ) {
                     DefaultTableModel model = (DefaultTableModel) tableLignesCommandes.getModel();
-                    if( qte_p_supp >= (int)qte_row ){
+                    if( qtePSupp >= (int)qte_row ){
                         model.removeRow(i);
                         i--;
-                        qte_p_supp -= (int)qte_row;
-                        article_en_stock.qte += (int)qte_row;
+                        qtePSupp -= (int)qte_row;
+                        articleEnStock.qte += (int)qte_row;
                     }else {
-                        tableLignesCommandes.setValueAt(((int) qte_row - qte_p_supp), i, 1);
+                        tableLignesCommandes.setValueAt(((int) qte_row - qtePSupp), i, 1);
                         tableLignesCommandes.setValueAt( (float)(((int) tableLignesCommandes.getValueAt(i, 1)) * (float) tableLignesCommandes.getValueAt(i, 2)), i, 3);
-                        article_en_stock.qte += qte_p_supp;
+                        articleEnStock.qte += qtePSupp;
                     }
                 }
             }
@@ -90,16 +90,16 @@ public class GestionVentesListener implements ActionListener {
                 return;
             }
 
-            String nom_vendeur = (String)listeVendeurs.getSelectedItem();
-            String nom_client = (String)listeClients.getSelectedItem();
-            Commande commande = new Commande(LocalDate.now(),mon_magasin.rechercherVendeur(nom_vendeur),mon_magasin.rechercherClient(nom_client));
+            String nomVendeur = (String)listeVendeurs.getSelectedItem();
+            String nomClient = (String)listeClients.getSelectedItem();
+            Commande commande = new Commande(LocalDate.now(), monMagasin.rechercherVendeur(nomVendeur), monMagasin.rechercherClient(nomClient));
 
             for (int i = 0; i < tableLignesCommandes.getRowCount(); i++) {
                 if( (int)tableLignesCommandes.getValueAt(i, 1) > 0 ){
-                    commande.ajouteLigneCommande( new LigneCommande( (int)tableLignesCommandes.getValueAt(i, 1),mon_magasin.rechercherLigneStock( (String)tableLignesCommandes.getValueAt(i, 0) ).article,commande ));
+                    commande.ajouteLigneCommande( new LigneCommande( (int)tableLignesCommandes.getValueAt(i, 1), monMagasin.rechercherLigneStock( (String)tableLignesCommandes.getValueAt(i, 0) ).article,commande ));
                 }
             }
-            ConfirmationAchat confirmationAchat = new ConfirmationAchat(mon_magasin,commande);
+            ConfirmationAchat confirmationAchat = new ConfirmationAchat(monMagasin,commande);
             confirmationAchat.setVisible(true);
         }
 

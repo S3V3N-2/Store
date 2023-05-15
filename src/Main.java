@@ -36,19 +36,6 @@ public class Main {
         magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(10,magasin.listeStock.get(0),macBook));
         magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(70,magasin.listeStock.get(0),tv));
 
-
-        Client client = new Client("Di Meo","Eros","0759683824","19 RUE DES BLEUETS",magasin);
-        Vendeur vendeur = new Vendeur("Pers","Gianni","093093","88WUUHE",magasin);
-        Commande commande = new Commande(LocalDate.now(),vendeur,client);
-
-        LigneCommande ligneCommande = new LigneCommande(2,pcPortable,commande);
-        commande.listeLigneCmd.add(ligneCommande);
-        client.liste_cmd.add(commande);
-
-        magasin.listeClient.add(client);
-        magasin.listeVendeur.add(vendeur);
-
-
         Menu menu = new Menu(magasin);
 
 

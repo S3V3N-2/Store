@@ -44,14 +44,14 @@ public class StatistiquesListener implements ActionListener {
             String nomC = (String) listeClients.getSelectedItem();
             for (int i = 0; i < monMagasin.listeClient.size(); i++) {
                 if ((monMagasin.listeClient.get(i).nom + " " + monMagasin.listeClient.get(i).prenom).equals(nomC)) {
-                    article = monMagasin.listeClient.get(i).article_le_plus_achete_client().nom;
-                    listeArticleClient = monMagasin.listeClient.get(i).listes_articles_commandes_client();
+                    article = monMagasin.listeClient.get(i).articleLePlusAcheteClient().nom;
+                    listeArticleClient = monMagasin.listeClient.get(i).listesArticlesCommandesClient();
                     for (int j = 0; j < listeArticleClient.size(); j++) {
                         Vector<Object> o = new Vector<Object>();
-                        o.add(listeArticleClient.get(i).id_a);
+                        o.add(listeArticleClient.get(i).idA);
                         o.add(listeArticleClient.get(i).nom);
                         o.add(listeArticleClient.get(i).prix);
-                        o.add(monMagasin.listeClient.get(i).qte_article_commande_client(listeArticleClient.get(i).nom));
+                        o.add(monMagasin.listeClient.get(i).qteArticleCommandeClient(listeArticleClient.get(i).nom));
                         o.add(listeArticleClient.get(i).designation);
                         model.addRow(o);
                     }
@@ -67,7 +67,6 @@ public class StatistiquesListener implements ActionListener {
             if (listeVendeurs.getSelectedItem() == "") {
                 return;
             }
-
             String chiffreAffair = "";
             String nombreArtVend = "";
             String nomV = (String) listeVendeurs.getSelectedItem();

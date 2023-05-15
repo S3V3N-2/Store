@@ -4,7 +4,7 @@ import java.util.*;
 public class Article {
 
 
-    public int id_a;
+    public int idA;
 
     public float prix;
 
@@ -12,8 +12,8 @@ public class Article {
 
     public String designation;
 
-    public Article(int id_a, int prix, String nom, String designation) {
-        this.id_a = id_a;
+    public Article(int idA, int prix, String nom, String designation) {
+        this.idA = idA;
         this.prix = prix;
         this.nom = nom;
         this.designation = designation;

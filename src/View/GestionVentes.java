@@ -1,25 +1,23 @@
 package View;
 
 import Controller.GestionVentesListener;
-import Model.LigneStock;
 import Model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Vector;
 
 public class GestionVentes extends JFrame {
-        JLabel label_vendeurs = new JLabel("Vendeur :");
-        JComboBox<String> list_vendeurs ;
-        JLabel label_clients = new JLabel("Client :");
-        JComboBox<String> list_clients ;
-        JLabel label_produits = new JLabel("Produit :");
-        JList<String> list_produits ;
+        JLabel labelVendeurs = new JLabel("Vendeur :");
+        JComboBox<String> listVendeurs;
+        JLabel labelClients = new JLabel("Client :");
+        JComboBox<String> listClients;
+        JLabel labelProduits = new JLabel("Produit :");
+        JList<String> listProduits;
         JSpinner quantite = new JSpinner(new SpinnerNumberModel(0,0,100,1));
-        JButton ajout_v = new JButton("Ajouter au panier");
-        JButton supp_v = new JButton("Supprimer du panier");
-        JButton valider_v = new JButton("Valider le panier");
+        JButton ajoutV = new JButton("Ajouter au panier");
+        JButton suppV = new JButton("Supprimer du panier");
+        JButton validerV = new JButton("Valider le panier");
         JPanel nordPanel = new JPanel();
         JPanel ouestPanel = new JPanel();
 
@@ -31,38 +29,38 @@ public class GestionVentes extends JFrame {
         this.setPreferredSize(new Dimension(600,600));
         magasin = m;
 
-        Vector<String> nom_vendeurs = new Vector<String>();
-        nom_vendeurs.add("");
+        Vector<String> nomVendeurs = new Vector<String>();
+        nomVendeurs.add("");
         for (int i =0;i<magasin.listeVendeur.size();i++){
-            nom_vendeurs.add(magasin.listeVendeur.get(i).nom);
+            nomVendeurs.add(magasin.listeVendeur.get(i).nom);
         }
-        list_vendeurs = new JComboBox<>(nom_vendeurs);
+        listVendeurs = new JComboBox<>(nomVendeurs);
 
-        Vector<String> nom_clients = new Vector<String>();
-        nom_clients.add("");
+        Vector<String> nomClients = new Vector<String>();
+        nomClients.add("");
         for (int i =0;i<magasin.listeClient.size();i++){
-            nom_clients.add(magasin.listeClient.get(i).nom);
+            nomClients.add(magasin.listeClient.get(i).nom);
         }
-        list_clients = new JComboBox<>(nom_clients);
+        listClients = new JComboBox<>(nomClients);
 
-        Vector<String> nom_produits = new Vector<String>();
+        Vector<String> nomProduits = new Vector<String>();
         for (int i =0;i<magasin.listeStock.get(0).listeLigneStock.size();i++){
-            nom_produits.add(magasin.listeStock.get(0).listeLigneStock.get(i).article.nom);
+            nomProduits.add(magasin.listeStock.get(0).listeLigneStock.get(i).article.nom);
         }
-        list_produits = new JList<>(nom_produits);
+        listProduits = new JList<>(nomProduits);
 
         getContentPane().setLayout( new BorderLayout() );
         nordPanel.setLayout( new FlowLayout() );
         ouestPanel.setLayout( new FlowLayout() );
-        ouestPanel.add(label_vendeurs);
-        ouestPanel.add(list_vendeurs);
-        ouestPanel.add(label_clients);
-        ouestPanel.add(list_clients);
-        nordPanel.add(list_produits);
+        ouestPanel.add(labelVendeurs);
+        ouestPanel.add(listVendeurs);
+        ouestPanel.add(labelClients);
+        ouestPanel.add(listClients);
+        nordPanel.add(listProduits);
         nordPanel.add(quantite);
-        nordPanel.add(ajout_v);
-        nordPanel.add(supp_v);
-        ouestPanel.add(valider_v);
+        nordPanel.add(ajoutV);
+        nordPanel.add(suppV);
+        ouestPanel.add(validerV);
         nordPanel.setPreferredSize(new Dimension(200,600));
         getContentPane().add(nordPanel,BorderLayout.WEST);
         getContentPane().add(ouestPanel,BorderLayout.NORTH);
@@ -76,13 +74,15 @@ public class GestionVentes extends JFrame {
 
         JTable tableCommandes = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(tableCommandes);
+        tableCommandes.setDefaultEditor(Object.class,null);
+        tableCommandes.setDefaultEditor(Object.class,null);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 
-        GestionVentesListener gvl = new GestionVentesListener(magasin,list_produits,list_vendeurs,list_clients,quantite,tableCommandes);
-        ajout_v.addActionListener(gvl);
-        supp_v.addActionListener(gvl);
-        valider_v.addActionListener(gvl);
+        GestionVentesListener gvl = new GestionVentesListener(magasin, listProduits, listVendeurs, listClients,quantite,tableCommandes);
+        ajoutV.addActionListener(gvl);
+        suppV.addActionListener(gvl);
+        validerV.addActionListener(gvl);
 
         this.pack();
     }

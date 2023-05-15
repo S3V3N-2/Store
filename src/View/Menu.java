@@ -1,7 +1,6 @@
 package View;
 
 import Controller.MenuListener;
-import Model.Client;
 import Model.Magasin;
 
 import javax.swing.*;
@@ -15,31 +14,30 @@ public class Menu extends JFrame {
     JButton ventes = new JButton("Gestion Ventes");
     JButton stat = new JButton("Statistiques");
 
-    JPanel grid_conteneur = new JPanel();
-    Magasin mon_magasin;
-    Client client;
+    JPanel gridConteneur = new JPanel();
+    Magasin monMagasin;
 
 
 
 
     public Menu(Model.Magasin m){
-        mon_magasin = m;
+        monMagasin = m;
         this.setTitle("Menu "+m.nom);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,600));
 
-        grid_conteneur.setLayout(new GridLayout(6,1));
-        grid_conteneur.setPreferredSize(new Dimension(600,200));
+        gridConteneur.setLayout(new GridLayout(6,1));
+        gridConteneur.setPreferredSize(new Dimension(600,200));
         nom.setHorizontalAlignment(SwingConstants.CENTER);
-        getContentPane().add(grid_conteneur);
-        grid_conteneur.add(nom);
-        grid_conteneur.add(produits);
-        grid_conteneur.add(clients);
-        grid_conteneur.add(vendeurs);
-        grid_conteneur.add(ventes);
-        grid_conteneur.add(stat);
+        getContentPane().add(gridConteneur);
+        gridConteneur.add(nom);
+        gridConteneur.add(produits);
+        gridConteneur.add(clients);
+        gridConteneur.add(vendeurs);
+        gridConteneur.add(ventes);
+        gridConteneur.add(stat);
 
-        MenuListener m_listener = new MenuListener(mon_magasin);
+        MenuListener m_listener = new MenuListener(monMagasin);
 
         produits.addActionListener(m_listener);
         clients.addActionListener(m_listener);
@@ -49,7 +47,7 @@ public class Menu extends JFrame {
 
 
 
-        this.setContentPane(grid_conteneur);
+        this.setContentPane(gridConteneur);
         this.pack();
         this.setVisible(true);
 

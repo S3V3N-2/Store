@@ -11,15 +11,15 @@ public class Vendeur extends Personne {
 
     public Vector<Commande> listeCommande = new Vector<Commande>();
 
-    public static int nb_vendeur = 0;
+    public static int nbVendeur = 0;
 
-    public int id_v;
+    public int idV;
 
     public Magasin magasin;
 
     public Vendeur(String n,String p, String t, String adresse,Magasin m) {
         super(n,p,t,adresse);
-        id_v = ++nb_vendeur;
+        idV = ++nbVendeur;
         magasin = m;
     }
 
