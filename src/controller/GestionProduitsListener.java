@@ -1,8 +1,8 @@
-package Controller;
+package controller;
 
-import Model.Article;
-import Model.LigneStock;
-import Model.Stock;
+import model.Article;
+import model.LigneStock;
+import model.Stock;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

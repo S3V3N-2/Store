@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Model.Commande;
-import Model.Magasin;
+import model.Commande;
+import model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;

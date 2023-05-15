@@ -1,9 +1,9 @@
-package View;
+package view;
 
-import Model.Client;
-import Model.LigneStock;
-import Model.Stock;
-import Model.Vendeur;
+import model.Client;
+import model.LigneStock;
+import model.Stock;
+import model.Vendeur;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

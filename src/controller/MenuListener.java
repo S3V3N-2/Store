@@ -1,12 +1,9 @@
-package Controller;
+package controller;
 
 
 
-import Model.Client;
-import Model.Commande;
-import Model.Magasin;
-import Model.Stock;
-import View.*;
+import model.Magasin;
+import view.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

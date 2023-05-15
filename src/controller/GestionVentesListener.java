@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
-import Model.Commande;
-import Model.LigneCommande;
-import Model.LigneStock;
-import Model.Magasin;
-import View.ConfirmationAchat;
+import model.Commande;
+import model.LigneCommande;
+import model.LigneStock;
+import model.Magasin;
+import view.ConfirmationAchat;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

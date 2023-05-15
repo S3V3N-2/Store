@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Controller.StatistiquesListener;
-import Model.*;
+import controller.StatistiquesListener;
+import model.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

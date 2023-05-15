@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Model.Article;
-import Model.Magasin;
+import model.Article;
+import model.Magasin;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

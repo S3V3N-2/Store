@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Controller.GestionVentesListener;
-import Model.Magasin;
+import controller.GestionVentesListener;
+import model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;

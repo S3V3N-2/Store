@@ -1,8 +1,8 @@
-package View;
+package view;
 
-import Controller.GestionProduitsListener;
-import Model.LigneStock;
-import Model.Stock;
+import controller.GestionProduitsListener;
+import model.LigneStock;
+import model.Stock;
 
 import javax.swing.*;
 import java.awt.*;

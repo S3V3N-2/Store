@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Controller.MenuListener;
-import Model.Magasin;
+import controller.MenuListener;
+import model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +20,7 @@ public class Menu extends JFrame {
 
 
 
-    public Menu(Model.Magasin m){
+    public Menu(model.Magasin m){
         monMagasin = m;
         this.setTitle("Menu "+m.nom);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

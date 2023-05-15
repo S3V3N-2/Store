@@ -1,8 +1,8 @@
-package View;
+package view;
 
-import Controller.GestionClientsListener;
-import Model.Client;
-import Model.Magasin;
+import controller.GestionClientsListener;
+import model.Client;
+import model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;

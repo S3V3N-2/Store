@@ -1,8 +1,6 @@
-package Model;
+package model;
 
-import java.util.*;
-
- public class LigneCommande {
+public class LigneCommande {
 
 
     public LigneCommande() {

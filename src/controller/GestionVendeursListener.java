@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Model.Magasin;
-import Model.Vendeur;
+import model.Magasin;
+import model.Vendeur;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

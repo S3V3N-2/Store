@@ -1,6 +1,4 @@
-package Model;
-
-import java.util.*;
+package model;
 
 
 public class Personne {

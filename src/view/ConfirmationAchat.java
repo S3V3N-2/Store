@@ -1,8 +1,8 @@
-package View;
+package view;
 
-import Controller.ConfirmationAchatListener;
-import Model.Commande;
-import Model.Magasin;
+import controller.ConfirmationAchatListener;
+import model.Commande;
+import model.Magasin;
 
 import javax.swing.*;
 import java.awt.*;
