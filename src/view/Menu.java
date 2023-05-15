@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Menu extends JFrame {
+
     JLabel nom = new JLabel("TECH STORE");
     JButton produits = new JButton("Gestion Produits");
     JButton clients = new JButton("Gestion Clients");
@@ -19,14 +20,13 @@ public class Menu extends JFrame {
 
 
 
-
     public Menu(model.Magasin m){
         monMagasin = m;
         this.setTitle("Menu "+m.nom);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,600));
 
-        gridConteneur.setLayout(new GridLayout(6,1));
+        gridConteneur.setLayout(new GridLayout(6,1,10,10));
         gridConteneur.setPreferredSize(new Dimension(600,200));
         nom.setHorizontalAlignment(SwingConstants.CENTER);
         getContentPane().add(gridConteneur);
@@ -43,14 +43,20 @@ public class Menu extends JFrame {
         nom.setForeground(Color.blue);
         produits.setBackground(new Color(153,204,255));
         produits.setForeground(Color.white);
+        produits.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         clients.setBackground(new Color(153,204,255));
         clients.setForeground(Color.white);
+        clients.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         vendeurs.setBackground(new Color(153,204,255));
         vendeurs.setForeground(Color.white);
+        vendeurs.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         ventes.setBackground(new Color(153,204,255));
         ventes.setForeground(Color.white);
+        ventes.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         stat.setBackground(new Color(153,204,255));
         stat.setForeground(Color.white);
+        stat.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
+
 
 
 
