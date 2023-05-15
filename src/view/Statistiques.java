@@ -132,6 +132,11 @@ public class Statistiques extends JFrame {
         listClients = new JComboBox<>(nomClients);
         clientPanel.add(listClients,constraints);
 
+        generalPanel.setBackground(new Color(204,229,255));
+        clientPanel.setBackground(new Color(204,229,255));
+        vendeursCenter.setBackground(new Color(204,229,255));
+        this.setBackground(new Color(153,204,255));
+
         constraints.gridx = 0;
         constraints.gridy = 2;
         constraints.weightx=0.9;
@@ -237,6 +242,7 @@ public class Statistiques extends JFrame {
         JTable tableC = new JTable(modelC);
         JScrollPane scrollPanelC = new JScrollPane(tableC);
         scrollPanelC.setPreferredSize(new Dimension(350,100));
+        tableC.setBackground(new Color(153,204,255));
         clientPanel.add(scrollPanelC,constraints);
         tableC.setDefaultEditor(Object.class,null);
 

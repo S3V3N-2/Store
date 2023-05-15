@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Menu extends JFrame {
-    JLabel nom = new JLabel("Tech Store");
+    JLabel nom = new JLabel("TECH STORE");
     JButton produits = new JButton("Gestion Produits");
     JButton clients = new JButton("Gestion Clients");
     JButton vendeurs = new JButton("Gestion Vendeurs");
@@ -30,12 +30,29 @@ public class Menu extends JFrame {
         gridConteneur.setPreferredSize(new Dimension(600,200));
         nom.setHorizontalAlignment(SwingConstants.CENTER);
         getContentPane().add(gridConteneur);
+
         gridConteneur.add(nom);
         gridConteneur.add(produits);
         gridConteneur.add(clients);
         gridConteneur.add(vendeurs);
         gridConteneur.add(ventes);
         gridConteneur.add(stat);
+        gridConteneur.setBackground(new Color(204,229,255));
+
+        nom.setFont(new Font("Monospaced", Font.BOLD, 18));
+        nom.setForeground(Color.blue);
+        produits.setBackground(new Color(153,204,255));
+        produits.setForeground(Color.white);
+        clients.setBackground(new Color(153,204,255));
+        clients.setForeground(Color.white);
+        vendeurs.setBackground(new Color(153,204,255));
+        vendeurs.setForeground(Color.white);
+        ventes.setBackground(new Color(153,204,255));
+        ventes.setForeground(Color.white);
+        stat.setBackground(new Color(153,204,255));
+        stat.setForeground(Color.white);
+
+
 
         MenuListener m_listener = new MenuListener(monMagasin);
 

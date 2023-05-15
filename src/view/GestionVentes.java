@@ -4,6 +4,7 @@ import controller.GestionVentesListener;
 import model.Magasin;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.Vector;
 
@@ -26,7 +27,7 @@ public class GestionVentes extends JFrame {
     public GestionVentes(Magasin m){
         this.setTitle("GESTION DES VENTES");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setPreferredSize(new Dimension(600,600));
+        this.setPreferredSize(new Dimension(600,400));
         magasin = m;
 
         Vector<String> nomVendeurs = new Vector<String>();
@@ -50,20 +51,28 @@ public class GestionVentes extends JFrame {
         listProduits = new JList<>(nomProduits);
 
         getContentPane().setLayout( new BorderLayout() );
-        nordPanel.setLayout( new FlowLayout() );
         ouestPanel.setLayout( new FlowLayout() );
-        ouestPanel.add(labelVendeurs);
-        ouestPanel.add(listVendeurs);
-        ouestPanel.add(labelClients);
-        ouestPanel.add(listClients);
-        nordPanel.add(listProduits);
-        nordPanel.add(quantite);
-        nordPanel.add(ajoutV);
-        nordPanel.add(suppV);
-        ouestPanel.add(validerV);
-        nordPanel.setPreferredSize(new Dimension(200,600));
-        getContentPane().add(nordPanel,BorderLayout.WEST);
-        getContentPane().add(ouestPanel,BorderLayout.NORTH);
+        nordPanel.setLayout( new FlowLayout() );
+        nordPanel.add(labelVendeurs);
+        nordPanel.add(listVendeurs);
+        nordPanel.add(labelClients);
+        nordPanel.add(listClients);
+        ouestPanel.add(listProduits);
+        ouestPanel.add(quantite);
+        ouestPanel.add(ajoutV);
+        ouestPanel.add(suppV);
+        nordPanel.add(validerV);
+        ouestPanel.setBorder( new EmptyBorder(70,0,0,0 ) );
+        ouestPanel.setPreferredSize(new Dimension(200,400));
+        getContentPane().add(ouestPanel,BorderLayout.WEST);
+        getContentPane().add(nordPanel,BorderLayout.NORTH);
+
+        nordPanel.setBackground(new Color(204,229,255));
+        ouestPanel.setBackground(new Color(204,229,255));
+        suppV.setBackground(new Color(102,178,255));
+        ajoutV.setBackground(new Color(102,178,255));
+        validerV.setBackground(new Color(102,178,255));
+
 
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Nom du produit");
@@ -75,7 +84,8 @@ public class GestionVentes extends JFrame {
         JTable tableCommandes = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(tableCommandes);
         tableCommandes.setDefaultEditor(Object.class,null);
-        tableCommandes.setDefaultEditor(Object.class,null);
+        tableCommandes.setBackground(new Color(153,204,255));
+
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 

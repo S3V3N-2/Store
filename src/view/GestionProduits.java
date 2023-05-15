@@ -10,11 +10,16 @@ import java.util.Vector;
 
 public class GestionProduits extends JFrame {
 
-    JTextField idTf = new JTextField("Id produit",10);
-    JTextField nomTf = new JTextField("Nom produit",10);
-    JTextField prixTf = new JTextField("Prix produit",10);
-    JTextField qteTf = new JTextField("Quantité",10);
-    JTextArea designationTf = new JTextArea("Entrez la déscription",3,60);
+    JLabel idL = new JLabel("Id produit :");
+    JTextField idTf = new JTextField("",10);
+    JLabel nomL = new JLabel("Nom produit :");
+    JTextField nomTf = new JTextField("",10);
+    JLabel prixL = new JLabel("Prix produit :");
+    JTextField prixTf = new JTextField("",10);
+    JLabel qteL = new JLabel("Quantité :");
+    JTextField qteTf = new JTextField("",10);
+    JLabel designationL = new JLabel("Entrez la déscription :");
+    JTextArea designationTf = new JTextArea("",2,60);
     JPanel nordPanel = new JPanel();
 
     JButton ajoutP = new JButton("Ajouter");
@@ -28,22 +33,34 @@ public class GestionProduits extends JFrame {
     public GestionProduits(Stock s){
         this.setTitle("GESTION DES PRODUITS");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setPreferredSize(new Dimension(780,600));
-        this.setLocationRelativeTo( null );
+        this.setPreferredSize(new Dimension(750,400));
+
         stock = s;
         ligneStock = stock.listeLigneStock;
+
         getContentPane().setLayout(new BorderLayout());
         nordPanel.setLayout(new FlowLayout());
-        nordPanel.setPreferredSize( new Dimension(500,250));
+        nordPanel.setPreferredSize( new Dimension(750,150));
         getContentPane().add(nordPanel,BorderLayout.NORTH);
+
+        nordPanel.add(idL);
         nordPanel.add(idTf);
+        nordPanel.add(nomL);
         nordPanel.add(nomTf);
+        nordPanel.add(prixL);
         nordPanel.add(prixTf);
+        nordPanel.add(qteL);
         nordPanel.add(qteTf);
+        nordPanel.add(designationL);
         nordPanel.add(designationTf);
         nordPanel.add(ajoutP);
         nordPanel.add(suppP);
 
+        nordPanel.setBackground(new Color(204,229,255));
+        ajoutP.setBackground(new Color(102,178,255));
+        ajoutP.setForeground(Color.white);
+        suppP.setBackground(new Color(102,178,255));
+        suppP.setForeground(Color.white);
 
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Id");
@@ -67,8 +84,13 @@ public class GestionProduits extends JFrame {
         stock.addObserver(new JTableObserver(table));
         JScrollPane scrollPane = new JScrollPane(table);
         table.setDefaultEditor(Object.class,null);
+        JPanel centerPanel = new JPanel();
+        centerPanel.add(scrollPane);
+        table.setBackground(new Color(153,204,255));
+        centerPanel.setBackground(new Color(204,229,255));
+        centerPanel.setPreferredSize(new Dimension(750,250) );
 
-        getContentPane().add(scrollPane,BorderLayout.CENTER);
+        getContentPane().add(centerPanel,BorderLayout.CENTER);
 
         JTextField[] tabJTF = new JTextField[4];
         tabJTF[0] = idTf;
