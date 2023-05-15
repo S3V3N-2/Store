@@ -28,6 +28,8 @@ public class GestionVentes extends JFrame {
         this.setTitle("GESTION DES VENTES");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,400));
+        this.setResizable(false);
+
         magasin = m;
 
         Vector<String> nomVendeurs = new Vector<String>();

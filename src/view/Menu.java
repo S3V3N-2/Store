@@ -25,6 +25,7 @@ public class Menu extends JFrame {
         this.setTitle("Menu "+m.nom);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(600,600));
+        this.setResizable(false);
 
         gridConteneur.setLayout(new GridLayout(6,1,10,10));
         gridConteneur.setPreferredSize(new Dimension(600,200));

@@ -34,6 +34,8 @@ public class GestionProduits extends JFrame {
         this.setTitle("GESTION DES PRODUITS");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(750,400));
+        this.setResizable(false);
+
 
         stock = s;
         ligneStock = stock.listeLigneStock;
@@ -89,6 +91,10 @@ public class GestionProduits extends JFrame {
         table.setBackground(new Color(153,204,255));
         centerPanel.setBackground(new Color(204,229,255));
         centerPanel.setPreferredSize(new Dimension(750,250) );
+        table.getColumnModel().getColumn(0).setPreferredWidth(20);
+        table.getColumnModel().getColumn(2).setPreferredWidth(50);
+        table.getColumnModel().getColumn(3).setPreferredWidth(50);
+        table.getColumnModel().getColumn(4).setPreferredWidth(200);
 
         getContentPane().add(centerPanel,BorderLayout.CENTER);
 

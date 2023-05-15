@@ -33,6 +33,7 @@ public class GestionClients extends JFrame {
         this.setTitle("GESTION DES CLIENTS");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(700,400));
+        this.setResizable(false);
 
         getContentPane().setLayout( new BorderLayout() );
         westPanel.setLayout( new FlowLayout() );
@@ -85,6 +86,11 @@ public class GestionClients extends JFrame {
         JScrollPane scrollPane = new JScrollPane(tableClients);
         tableClients.setDefaultEditor(Object.class,null);
         tableClients.setBackground(new Color(153,204,255));
+        tableClients.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tableClients.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tableClients.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tableClients.getColumnModel().getColumn(4).setPreferredWidth(150);
+
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 

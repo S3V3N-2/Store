@@ -30,6 +30,8 @@ public class GestionVendeurs extends JFrame {
         this.setTitle("GESTION DES VENDEURS");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(700,400));
+        this.setResizable(false);
+
         magasin = m;
         listeVendeurs = magasin.listeVendeur;
 
@@ -82,6 +84,10 @@ public class GestionVendeurs extends JFrame {
         JScrollPane scrollPane = new JScrollPane(tableVendeurs);
         tableVendeurs.setDefaultEditor(Object.class,null);
         tableVendeurs.setBackground(new Color(153,204,255));
+        tableVendeurs.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tableVendeurs.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tableVendeurs.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tableVendeurs.getColumnModel().getColumn(4).setPreferredWidth(150);
 
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 

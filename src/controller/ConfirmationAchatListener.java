@@ -33,6 +33,7 @@ public class ConfirmationAchatListener implements ActionListener {
             container.setLayout( new FlowLayout());
             container.add( new JLabel("Commande bien effectué !"));
             container.add(new JLabel("Vous pouvez passer en magasin la récuperer") );
+            container.setBackground(new Color(204,229,255));
         }
         if (((JButton)e.getSource()).getText().equals("Annuler")){
             frame.dispose();

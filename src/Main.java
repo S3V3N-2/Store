@@ -23,17 +23,17 @@ public class Main {
 
 
 
-        magasin.ajouteVendeur(new Vendeur("Kevin","DeBruyne","0771239402","10 rue Manchester City",magasin));
-        magasin.ajouteVendeur(new Vendeur("Ryad","Mahrez","0621326213","26 place Etihad Stadium",magasin));
+        magasin.ajouteVendeur(new Vendeur("Da costa","Pedro","0771239402","10 rue Manchester City",magasin));
+        magasin.ajouteVendeur(new Vendeur("Sanchez","Joao","0621326213","26 place Etihad Stadium",magasin));
 
         Stock stock = new Stock(1,magasin);
         magasin.ajouteStock(stock);
-        stock.listeLigneStock.add(new LigneStock(30,magasin.listeStock.get(0),pcPortable));
-        stock.listeLigneStock.add(new LigneStock(45,magasin.listeStock.get(0),iphone15));
-        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(30,magasin.listeStock.get(0),pcPortable));
-        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(45,magasin.listeStock.get(0),iphone15));
-        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(10,magasin.listeStock.get(0),macBook));
-        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(70,magasin.listeStock.get(0),tv));
+        stock.listeLigneStock.add(new LigneStock(30,stock,pcPortable));
+        stock.listeLigneStock.add(new LigneStock(45,stock,iphone15));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(30,stock,pcPortable));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(45,stock,iphone15));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(10,stock,macBook));
+        magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(70,stock,tv));
 
         Menu menu = new Menu(magasin);
 
