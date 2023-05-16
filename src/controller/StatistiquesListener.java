@@ -48,11 +48,11 @@ public class StatistiquesListener implements ActionListener {
                     listeArticleClient = monMagasin.listeClient.get(i).listesArticlesCommandesClient();
                     for (int j = 0; j < listeArticleClient.size(); j++) {
                         Vector<Object> o = new Vector<Object>();
-                        o.add(listeArticleClient.get(i).idA);
-                        o.add(listeArticleClient.get(i).nom);
-                        o.add(listeArticleClient.get(i).prix);
-                        o.add(monMagasin.listeClient.get(i).qteArticleCommandeClient(listeArticleClient.get(i).nom));
-                        o.add(listeArticleClient.get(i).designation);
+                        o.add(listeArticleClient.get(j).idA);
+                        o.add(listeArticleClient.get(j).nom);
+                        o.add(listeArticleClient.get(j).prix);
+                        o.add(monMagasin.listeClient.get(i).qteArticleCommandeClient(listeArticleClient.get(j).nom));
+                        o.add(listeArticleClient.get(j).designation);
                         model.addRow(o);
                     }
                 }

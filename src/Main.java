@@ -2,6 +2,7 @@ import model.*;
 import view.Menu;
 
 
+import java.time.LocalDate;
 import java.util.Vector;
 
 
@@ -34,6 +35,18 @@ public class Main {
         magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(45,stock,iphone15));
         magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(10,stock,macBook));
         magasin.listeStock.get(0).ajouteLigneStock(new LigneStock(70,stock,tv));
+
+        Vendeur v = new Vendeur("Di Meo","Eros","0785801327","19 place d'Italie",magasin);
+        Client c = new Client("Persechini","Gianni","0785834327","19 Saint-Lazard",magasin);
+
+        magasin.ajouteClient(c);
+        magasin.ajouteVendeur(v);
+
+        Commande commande = new Commande(LocalDate.now(),v,c);
+        v.ajouteCommande(commande);
+        c.ajouteCommande(commande);
+        LigneCommande ligneCommande = new LigneCommande(2,iphone15,commande);
+        commande.ajouteLigneCommande(ligneCommande);
 
         Menu menu = new Menu(magasin);
 

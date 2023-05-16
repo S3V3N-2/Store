@@ -63,12 +63,13 @@ public class Client extends Personne {
         //retourne une liste contenant tout les articles commandé par le client
         Vector<Article> newVec = new Vector<Article>();
         for(int i = 0; i< listeCmd.size(); i++){
-            for(int j = 0; j< listeCmd.get(i).listeLigneCmd.size(); j++){
+            for(int j = 0; j<listeCmd.get(i).listeLigneCmd.size(); j++){
                 if( !(newVec.contains(listeCmd.get(i).listeLigneCmd.get(j).article)) ) {
                     newVec.add(listeCmd.get(i).listeLigneCmd.get(j).article);
                 }
             }
         }
+
         return newVec;
     }
 
