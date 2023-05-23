@@ -20,7 +20,7 @@ public class Menu extends JFrame {
 
 
 
-    public Menu(model.Magasin m){
+    public Menu(Magasin m){
         monMagasin = m;
         this.setTitle("Menu "+m.nom);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -43,19 +43,19 @@ public class Menu extends JFrame {
         nom.setFont(new Font("Monospaced", Font.BOLD, 18));
         nom.setForeground(Color.blue);
         produits.setBackground(new Color(153,204,255));
-        produits.setForeground(Color.white);
+        produits.setForeground(Color.black);
         produits.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         clients.setBackground(new Color(153,204,255));
-        clients.setForeground(Color.white);
+        clients.setForeground(Color.black);
         clients.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         vendeurs.setBackground(new Color(153,204,255));
-        vendeurs.setForeground(Color.white);
+        vendeurs.setForeground(Color.black);
         vendeurs.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         ventes.setBackground(new Color(153,204,255));
-        ventes.setForeground(Color.white);
+        ventes.setForeground(Color.black);
         ventes.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
         stat.setBackground(new Color(153,204,255));
-        stat.setForeground(Color.white);
+        stat.setForeground(Color.black);
         stat.setFont( new Font("Tahoma",Font.BOLD | Font.ITALIC, 18) );
 
 

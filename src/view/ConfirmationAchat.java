@@ -36,10 +36,10 @@ public class ConfirmationAchat extends JFrame {
         getContentPane().add(affichage,BorderLayout.CENTER);
         bouttons.setLayout(new FlowLayout());
         bConfirmer.setBackground(new Color(102,178,255));
-        bConfirmer.setForeground(Color.white);
+        bConfirmer.setForeground(Color.black);
         bouttons.add(bConfirmer);
         bAnnuler.setBackground(new Color(102,178,255));
-        bAnnuler.setForeground(Color.WHITE);
+        bAnnuler.setForeground(Color.black);
         bouttons.add(bAnnuler);
         bouttons.setBackground(new Color(204,229,255));
         getContentPane().add(bouttons,BorderLayout.SOUTH);

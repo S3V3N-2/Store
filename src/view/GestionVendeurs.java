@@ -56,9 +56,9 @@ public class GestionVendeurs extends JFrame {
 
         westPanel.setBackground(new Color(204,229,255));
         ajoutV.setBackground(new Color(102,178,255));
-        ajoutV.setForeground(Color.white);
+        ajoutV.setForeground(Color.black);
         suppV.setBackground(new Color(102,178,255));
-        suppV.setForeground(Color.white);
+        suppV.setForeground(Color.black);
         westPanel.setBorder( new EmptyBorder(70,0,0,0 ) );
 
         Vector<String> columnNames = new Vector<String>();

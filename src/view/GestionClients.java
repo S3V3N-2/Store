@@ -57,9 +57,9 @@ public class GestionClients extends JFrame {
 
         westPanel.setBackground(new Color(204,229,255));
         ajoutC.setBackground(new Color(102,178,255));
-        ajoutC.setForeground(Color.white);
+        ajoutC.setForeground(Color.black);
         suppC.setBackground(new Color(102,178,255));
-        suppC.setForeground(Color.white);
+        suppC.setForeground(Color.black);
         westPanel.setBorder( new EmptyBorder(70,0,0,0 ) );
 
 

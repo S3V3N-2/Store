@@ -60,9 +60,9 @@ public class GestionProduits extends JFrame {
 
         nordPanel.setBackground(new Color(204,229,255));
         ajoutP.setBackground(new Color(102,178,255));
-        ajoutP.setForeground(Color.white);
+        ajoutP.setForeground(Color.black);
         suppP.setBackground(new Color(102,178,255));
-        suppP.setForeground(Color.white);
+        suppP.setForeground(Color.black);
 
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Id");
