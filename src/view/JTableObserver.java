@@ -22,7 +22,7 @@ public class JTableObserver implements Observer {
     @Override
     public void update(Observable obs, Object arg) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
-        if (obs instanceof Stock) { // Vérifiez si l'observable est une instance de MyTableModel
+        if (obs instanceof Stock) {
             LigneStock ls = (LigneStock) arg;
 
             // vérifie si la LigneStock envoyé existe déja dans notre table

@@ -48,6 +48,7 @@ public class GestionProduitsListener implements ActionListener {
             // Ajout de la ligneStock dans notre Stock
             stock.ajouteLigneStock(new LigneStock(qteP, stock, new Article(idP, prixP, nomP, designationP)));
 
+
             // Vider les champs
             for (int i = 0; i < 4; i++) {
                 tabJTF[i].setText("");
